@@ -9,7 +9,7 @@ class RandomWords extends StatefulWidget {
 class _RandomWordsState extends State<RandomWords> {
   final _randomWordPairs = <WordPair>[];
   final _savedWordPairs = Set<WordPair>();
-  
+
   Widget _buildList() {
     return ListView.builder(
       padding: const EdgeInsets.all(16),
@@ -31,11 +31,13 @@ class _RandomWordsState extends State<RandomWords> {
   }
 
   Widget _buildRow(WordPair pair) {
+    final alreadySaved = _savedWordPairs.contains(pair);
     return ListTile(
       title: Text(
         pair.asPascalCase,
         style: TextStyle(fontSize: 18.0),
       ),
+      trailing: Icon(Icons.favorite),
     );
   }
 
