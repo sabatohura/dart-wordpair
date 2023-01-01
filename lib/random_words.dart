@@ -52,6 +52,7 @@ class _RandomWordsState extends State<RandomWords> {
         });
   }
 
+  void _pushSaved() {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,6 +60,12 @@ class _RandomWordsState extends State<RandomWords> {
           title: const Center(
             child: Text('WordPairs Generator'),
           ),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.list),
+              onPressed: _pushSaved,
+            )
+          ],
         ),
         body: _buildList());
   }
