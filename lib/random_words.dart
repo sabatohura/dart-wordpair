@@ -37,7 +37,7 @@ class _RandomWordsState extends State<RandomWords> {
         pair.asPascalCase,
         style: TextStyle(fontSize: 18.0),
       ),
-      trailing: Icon(Icons.favorite),
+      trailing: Icon(alreadySaved ? Icons.favorite : Icons.favorite_border),
     );
   }
 
