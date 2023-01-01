@@ -21,7 +21,10 @@ class _RandomWordsState extends State<RandomWords> {
     return ListView.builder(
       padding: const EdgeInsets.all(16),
       itemBuilder: (context, item) {
-        if (item.isOdd) return Divider();
+        if (item.isOdd)
+          return Divider(
+            thickness: 1,
+          );
         final index = item ~/ 2;
 
         if (index >= _randomWordPairs.length) {
@@ -35,7 +38,10 @@ class _RandomWordsState extends State<RandomWords> {
 
   Widget _buildRow(WordPair pair) {
     return ListTile(
-      title: Text('hEllo'),
+      title: Text(
+        pair.asPascalCase,
+        style: TextStyle(fontSize: 18.0),
+      ),
     );
   }
 
