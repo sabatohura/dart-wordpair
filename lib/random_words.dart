@@ -52,7 +52,27 @@ class _RandomWordsState extends State<RandomWords> {
         });
   }
 
-  void _pushSaved() {}
+  void _pushSaved() {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (BuildContext context) {
+        final Iterable<ListTile> tiles = _savedWordPairs.map((WordPair pair) {
+          return ListTile(
+              title: Text(pair.asPascalCase, style: TextStyle(fontSize: 16)));
+        });
+        final List<Widget> divided =
+            ListTile.divideTiles(tiles: tiles, context: context).toList();
+        return Scaffold(
+          appBar: AppBar(
+            title: Text('Saved Word Pairs'),
+          ),
+          body: ListView(
+            children: divided,
+          ),
+        );
+      },
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
